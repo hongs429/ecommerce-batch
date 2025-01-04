@@ -6,7 +6,7 @@ public enum ProductStatus {
     DISCONTINUED("판매 종료")
     ;
 
-    private final String description;
+    final String description;
 
     ProductStatus(String description) {
         this.description = description;

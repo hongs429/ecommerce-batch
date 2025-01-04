@@ -19,7 +19,7 @@ public class Product {
     private String productName;
     private LocalDate saleStartDate;
     private LocalDate saleEndDate;
-    private String productStatus;
+    private ProductStatus productStatus;
     private String brand;
     private String manufacturer;
 

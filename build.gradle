@@ -19,11 +19,11 @@ allprojects {
         }
     }
 
-//    configurations {
-//        compileOnly {
-//            extendsFrom annotationProcessor
-//        }
-//    }
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
 
     repositories {
         mavenCentral()
