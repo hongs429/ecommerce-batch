@@ -27,4 +27,3 @@ prometheus:
     name: spring-batch
   pushgateway:
     url: localhost:9091
-

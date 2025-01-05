@@ -23,7 +23,6 @@ public class BatchStepExecutionListener implements StepExecutionListener {
         prometheusPushGatewayManager.pushMetrics(
                 Map.of("job_name", stepExecution.getJobExecution().getJobInstance().getJobName())
         );
-
         return ExitStatus.COMPLETED;
     }
 }

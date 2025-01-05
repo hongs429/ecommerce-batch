@@ -25,6 +25,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.task.TaskExecutor;
+
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
@@ -55,6 +56,7 @@ public class ProductUploadJobConfiguration {
                                   ItemProcessor<ProductUploadCsvRow, Product> productProcessor,
                                   ItemWriter<Product> productWriter,
                                   TaskExecutor batchTaskExecutor
+                                  ItemWriter<Product> productWriter
     ) {
         return new StepBuilder("productUploadStep", jobRepository)
                 .<ProductUploadCsvRow, Product>chunk(1000, transactionManager)
@@ -99,19 +101,19 @@ public class ProductUploadJobConfiguration {
     public JdbcBatchItemWriter<Product> productWriter(DataSource dataSource) {
         String sql = """
                     INSERT INTO products (
-                    product_id,
-                    seller_id,
-                    category,
-                    product_name,
-                    sale_start_date,
-                    sale_end_date,
-                    product_status,
-                    brand,
-                    manufacturer,
-                    sales_price,
-                    stock_quantity,
-                    create_at,
-                    update_at
+                       product_id,
+                        seller_id,
+                        category,
+                        product_name,
+                        sale_start_date,
+                        sale_end_date,
+                        product_status,
+                        brand,
+                        manufacturer,
+                        sales_price,
+                        stock_quantity,
+                        create_at,
+                        update_at
                     ) VALUES (
                         :productId,
                         :sellerId,
