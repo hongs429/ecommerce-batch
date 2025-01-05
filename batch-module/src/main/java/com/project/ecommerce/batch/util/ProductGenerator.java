@@ -4,7 +4,6 @@ import com.project.ecommerce.batch.domain.product.ProductStatus;
 import com.project.ecommerce.batch.dto.ProductUploadCsvRow;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Random;

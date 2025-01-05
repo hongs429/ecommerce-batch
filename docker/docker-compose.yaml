@@ -7,19 +7,35 @@ services:
     image: postgres:17
     container_name: postgres-db
     restart: always
-    # set shared memory limit when using docker-compose
-#    shm_size: 128mb
     volumes:
       - ../docker/data:/var/lib/postgresql/data
-    # or set shared memory limit when deploy via swarm stack
-    # volumes:
-    #  - type: tmpfs
-    #    target: /dev/shm
-    #    tmpfs:
-    #      size: 134217728 # 128*2^20 bytes = 128Mb
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: local1234
     ports:
       - "5432:5432"
+
+
+  prometheus:
+    image: prom/prometheus:v2.7.2
+    container_name: prometheus-batch-ecommerce
+    restart: always
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  pushgateway:
+    image: prom/pushgateway:v0.6.0
+    container_name: pushgateway-ecommerce-batch
+    restart: always
+    ports:
+      - "9091:9091"
+
+  grafana:
+    image: grafana/grafana:6.0.2
+    container_name: grafana-ecommerce-batch
+    restart: always
+    ports:
+      - "3000:3000"
 

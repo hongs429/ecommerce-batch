@@ -24,6 +24,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.task.TaskExecutor;
+
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
@@ -52,6 +54,8 @@ public class ProductUploadJobConfiguration {
                                   StepExecutionListener stepExecutionListener,
                                   ItemReader<ProductUploadCsvRow> productReader,
                                   ItemProcessor<ProductUploadCsvRow, Product> productProcessor,
+                                  ItemWriter<Product> productWriter,
+                                  TaskExecutor batchTaskExecutor
                                   ItemWriter<Product> productWriter
     ) {
         return new StepBuilder("productUploadStep", jobRepository)
@@ -61,6 +65,7 @@ public class ProductUploadJobConfiguration {
                 .writer(productWriter)
                 .allowStartIfComplete(true)     // 이전 실행 결과가 COMPLETED 상태라도 해당 Step을 다시 실행. 개발단계에서만 적용
                 .listener(stepExecutionListener)
+                .taskExecutor(batchTaskExecutor)
                 .build();
     }
 
