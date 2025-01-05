@@ -1,7 +1,5 @@
 package com.project.ecommerce.batch.dto;
 
-import com.project.ecommerce.batch.domain.product.ProductStatus;
-import java.time.LocalDate;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
