@@ -1,0 +1,7 @@
+sellerId,category,productName,saleStartDate,saleEndDate,productStatus,brand,manufacturer,salesPrice,stockQuantity
+73,서적,연필,2022-10-21,2026-10-03,AVAILABLE,중고나라,켈빈,51219,2044
+34,식품,축구화,2020-02-15,2024-08-05,OUT_OF_STOCK,캘빈클라인,101 회사,442550,2386
+39,가전,물,2022-09-27,2026-07-03,OUT_OF_STOCK,아티스트리,암웨이,90983,1356
+94,가전,드럼,2022-02-17,2025-09-27,DISCONTINUED,중고나라,삼성전자,451332,1432
+87,가전,침대,2020-09-20,2026-10-14,OUT_OF_STOCK,중고나라,웹,279179,3316
+36,디지털,비비크림,2020-10-01,2026-08-06,AVAILABLE,캘빈클라인,웹,30217,313
