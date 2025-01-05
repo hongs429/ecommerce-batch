@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ecommerce-batch
+
+# connection
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?profileSQL=true
+    username: postgres
+    password: local1234
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 200
+
+# batch
+  batch:
+    jdbc:
+      initialize-schema: always
+
+logging:
+  level:
+    root: info
+    org.springframework.jdbc.core.JdbcTemplate: debug
+    org.springframework.jdbc.core.StatementCreatorUtils: debug
