@@ -25,7 +25,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.task.TaskExecutor;
-
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
@@ -56,7 +55,6 @@ public class ProductUploadJobConfiguration {
                                   ItemProcessor<ProductUploadCsvRow, Product> productProcessor,
                                   ItemWriter<Product> productWriter,
                                   TaskExecutor batchTaskExecutor
-                                  ItemWriter<Product> productWriter
     ) {
         return new StepBuilder("productUploadStep", jobRepository)
                 .<ProductUploadCsvRow, Product>chunk(1000, transactionManager)
